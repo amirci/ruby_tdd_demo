@@ -21,7 +21,10 @@ module MediaLibrary
       critic = MovieCritic.new
       
       # act
-      @expected.each { |m| @library.add(m) }
+      @expected.each do |m| 
+        @library.add(m) 
+        critic.add(m, 10)
+      end
 
       # act & assert
       @library.top_10.should == @expected
