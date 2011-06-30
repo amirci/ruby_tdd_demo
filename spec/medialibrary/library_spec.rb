@@ -18,6 +18,8 @@ module MediaLibrary
     end
 
     it "should return top 10 movies" do
+      critic = MovieCritic.new
+      
       # act
       @expected.each { |m| @library.add(m) }
 
