@@ -7,6 +7,18 @@ module MediaLibrary
       @title = movie_title
     end
     
+    def eql?(other)
+      @title.eql?(other.title)
+    end
+    
+    def ==(other)
+      eql?(other)
+    end
+    
+    def hash
+      @title.hash
+    end
+    
   end
   
 end
