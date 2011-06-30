@@ -25,6 +25,9 @@ module MediaLibrary
       library = Library.new
       expected = Array.new(10) { |i| Movie.new("New movie #{i}") }
       
+      # act
+      expected.each { |m| library.add(m) }
+
       # act & assert
       library.top_10.should == expected
     end

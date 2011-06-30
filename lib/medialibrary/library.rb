@@ -11,6 +11,9 @@ module MediaLibrary
       @contents << media
     end
     
+    def top_10
+      @contents
+    end
   end
   
 end
