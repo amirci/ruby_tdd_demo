@@ -9,10 +9,15 @@ module MediaLibrary
     end
     
     it "should add a movie to the library" do
+      # arrange
       library = Library.new
-      m1 = Movie.new('Blazing Saddles')
-      library.add m1
-      library.contents.should == [m1]
+      expected = (0..10).inject([]) { |movies, i| movies << Movie.new("New movie #{i}") }
+      
+      # act
+      expected.each { |m| library.add(m) }
+      
+      # assert
+      library.contents.should == expected
     end
     
   end
