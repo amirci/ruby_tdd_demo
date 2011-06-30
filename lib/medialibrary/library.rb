@@ -11,9 +11,9 @@ module MediaLibrary
       @contents << media
     end
     
-    def top_10
+    def top(n)
       critic = MovieCritic.create
-      @contents.sort { |m1, m2| critic.rank(m1) <=> critic.rank(m2) }.first(10)
+      @contents.sort { |m1, m2| critic.rank(m1) <=> critic.rank(m2) }.first(n)
     end
   end
   

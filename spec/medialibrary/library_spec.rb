@@ -26,9 +26,10 @@ module MediaLibrary
       @expected.each { |m| @library.add(m) }
 
       @expected.first(5).each { |m| critic.stub!(:rank).with(m).and_return(10) }
+      @expected.last(5).each { |m| critic.stub!(:rank).with(m).and_return(1) }
       
       # act & assert
-      @library.top_10.should == @expected.first(5)
+      @library.top(5).should == @expected.first(5)
     end
     
   end
