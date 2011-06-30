@@ -18,12 +18,12 @@ module MediaLibrary
     end
 
     it "should return top 10 movies" do
-      critic = MovieCritic.new
+      # make the factory method to return the critic
+      critic = double("critic", :rank => 10)
       
       # act
       @expected.each do |m| 
         @library.add(m) 
-        critic.add(m, 10)
       end
 
       # act & assert
