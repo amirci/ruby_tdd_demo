@@ -6,6 +6,9 @@ module MediaLibrary
       
     end
     
+    def contents
+    end
+    
   end
   
 end
