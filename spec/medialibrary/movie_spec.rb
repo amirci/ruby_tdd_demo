@@ -12,6 +12,15 @@ module MediaLibrary
       movie = Movie.new("Blazing Saddles")
       movie.title.should == "Blazing Saddles"
     end
+
+    it "should have equality by title" do
+      m1 = Movie.new('Blazing Saddles')
+      m2 = Movie.new('Blazing Saddles')
+
+      m1.should == m2
+    end
+
+
   end
   
 end
