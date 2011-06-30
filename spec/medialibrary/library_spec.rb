@@ -18,16 +18,17 @@ module MediaLibrary
     end
 
     it "should return top 10 movies" do
-      # make the factory method to return the critic
-      critic = double("critic", :rank => 10)
-      
-      # act
-      @expected.each do |m| 
-        @library.add(m) 
-      end
+      # arrange make the factory method to return the critic
+      critic = double("critic")
 
+      MovieCritic.stub!(:create).and_return(critic)
+      
+      @expected.each { |m| @library.add(m) }
+
+      @expected.first(5).each { |m| critic.stub!(:rank).with(m).and_return(10) }
+      
       # act & assert
-      @library.top_10.should == @expected
+      @library.top_10.should == @expected.first(5)
     end
     
   end
