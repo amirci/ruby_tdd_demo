@@ -13,7 +13,10 @@ module MediaLibrary
     
     def top(n)
       critic = MovieCritic.create
-      @contents.sort { |m1, m2| critic.rank(m1) <=> critic.rank(m2) }.first(n)
+      @contents.                                                
+          sort { |m1, m2| critic.rank(m1) <=> critic.rank(m2) }.
+          reverse.
+          first(n) 
     end
   end
   
