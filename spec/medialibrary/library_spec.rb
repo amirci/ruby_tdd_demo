@@ -19,6 +19,15 @@ module MediaLibrary
       # assert
       library.contents.should == expected
     end
+
+    it "should return top 10 movies" do
+      #arrange
+      library = Library.new
+      expected = (0..10).inject([]) { |movies, i| movies << Movie.new("New movie #{i}") }
+      
+      # act & assert
+      library.top_10.should == expected
+    end
     
   end
   
