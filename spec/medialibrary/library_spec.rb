@@ -11,7 +11,7 @@ module MediaLibrary
     it "should add a movie to the library" do
       # arrange
       library = Library.new
-      expected = (0..10).inject([]) { |movies, i| movies << Movie.new("New movie #{i}") }
+      expected = Array.new(10) { |i| Movie.new("New movie #{i}") }
       
       # act
       expected.each { |m| library.add(m) }
@@ -23,7 +23,7 @@ module MediaLibrary
     it "should return top 10 movies" do
       #arrange
       library = Library.new
-      expected = (0..10).inject([]) { |movies, i| movies << Movie.new("New movie #{i}") }
+      expected = Array.new(10) { |i| Movie.new("New movie #{i}") }
       
       # act & assert
       library.top_10.should == expected
