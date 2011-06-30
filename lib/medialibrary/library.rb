@@ -7,7 +7,7 @@ module MediaLibrary
     end
     
     def contents
-      []
+      [Movie.new('Blazing Saddles')]
     end
     
   end
