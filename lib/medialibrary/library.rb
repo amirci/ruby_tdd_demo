@@ -1,13 +1,14 @@
 module MediaLibrary
   
   class Library
+    attr_reader :contents 
     
-    def add(media)
-      
+    def initialize
+      @contents = []
     end
     
-    def contents
-      [Movie.new('Blazing Saddles')]
+    def add(media)
+      @contents << media
     end
     
   end
