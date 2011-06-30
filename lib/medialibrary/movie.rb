@@ -4,6 +4,7 @@ module MediaLibrary
     attr_reader :title
     
     def initialize(movie_title)
+      @title = movie_title
     end
     
   end
